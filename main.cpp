@@ -1,11 +1,31 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QSurfaceFormat>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    // Устанавливаем формат поверхности OpenGL
+    QSurfaceFormat format;
+    format.setRenderableType(QSurfaceFormat::OpenGL);
+    format.setProfile(QSurfaceFormat::CompatibilityProfile);
+    format.setVersion(2, 1);  // Используйте версию OpenGL, поддерживаемую вашим оборудованием
+    format.setDepthBufferSize(24);
+    format.setRedBufferSize(8);
+    format.setGreenBufferSize(8);
+    format.setBlueBufferSize(8);
+    format.setAlphaBufferSize(8);
+    format.setStencilBufferSize(8);
+    format.setSamples(4);
+    format.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
+    format.setSwapInterval(1);
+    format.setColorSpace(QSurfaceFormat::DefaultColorSpace);
+    format.setProfile(QSurfaceFormat::NoProfile);
+
+    QSurfaceFormat::setDefaultFormat(format);
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -18,3 +38,4 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+

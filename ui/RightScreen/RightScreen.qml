@@ -1,6 +1,9 @@
 import QtQuick 2.0
+<<<<<<< HEAD
 import QtLocation 5.12
 import QtPositioning 5.12
+=======
+>>>>>>> e2335bd321e4dc21174baf6ca90a44bb9e4de38c
 
 Rectangle {
     id: rightScreen
@@ -10,6 +13,7 @@ Rectangle {
         bottom: bottomBar.top
         right:parent.right
     }
+<<<<<<< HEAD
     Plugin {
         id: mapPlugin
         name: "osm"
@@ -23,4 +27,8 @@ Rectangle {
         zoomLevel: 14
     }
      width: parent.width * 2/3
+=======
+    color: "orange"
+    width: parent.width * 2/3
+>>>>>>> e2335bd321e4dc21174baf6ca90a44bb9e4de38c
 }
