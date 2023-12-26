@@ -11,6 +11,14 @@ Rectangle {
 
     }
 
-    color: "blue"
+    color: "white"
+
+    Image {
+        id: carRender
+        anchors.centerIn: parent
+        width: parent.width * .90
+        fillMode: Image.PreserveAspectFit
+        source: "qrc:/ui/assets/CarRender.jpg"
+    }
 
 }
