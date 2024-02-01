@@ -48,11 +48,41 @@ Rectangle {
             bottom: lockIcon.bottom
         }
 
-        font.pixelSize: 12
+        font.pixelSize: 20
         font.bold: true
         color: "black"
 
         text: systemHandler.currentTime
+    }
+
+    Text {
+        id: outdoorTemperatureDisplay
+        anchors {
+            left: dateTimeDisplay.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 20
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.outdoorTemp + "°F"
+    }
+
+    Text {
+        id: userNameDisplay
+        anchors {
+            left: outdoorTemperatureDisplay.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 20
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.username
     }
 
      width: parent.width * 2/3

@@ -77,7 +77,7 @@ void System::currentTimeTimerTimeout()
 {
     QDateTime dateTime;
     QString currentTime = dateTime.currentDateTime().toString( "h:m ap");
-    qDebug() << currentTime;
+
     setcurrentTime(currentTime);
 
     m_currentTimeTimer->start();
