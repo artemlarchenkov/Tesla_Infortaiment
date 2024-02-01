@@ -40,5 +40,20 @@ Rectangle {
         }
     }
 
+    Text {
+        id: dateTimeDisplay
+        anchors {
+            left: lockIcon.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+
+        font.pixelSize: 12
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.currentTime
+    }
+
      width: parent.width * 2/3
 }

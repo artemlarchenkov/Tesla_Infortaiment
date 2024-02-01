@@ -1,4 +1,6 @@
 #include "system.h"
+#include <QDateTime>
+#include <QtDebug>
 
 System::System(QObject *parent)
     : QObject(parent)
@@ -6,6 +8,12 @@ System::System(QObject *parent)
     , m_outdoorTemp (64)
     , m_username ("Artem")
 {
+    m_currentTimeTimer = new QTimer(this);
+    m_currentTimeTimer->setInterval( 500 );
+    m_currentTimeTimer->setSingleShot( true );
+    connect ( m_currentTimeTimer, &QTimer::timeout, this, &System::currentTimeTimerTimeout);
+
+    currentTimeTimerTimeout();
 
 }
 
@@ -22,6 +30,11 @@ int System::outdoorTemp() const
 QString System::username() const
 {
     return m_username;
+}
+
+QString System::currentTime() const
+{
+    return m_currentTime;
 }
 
 void System::setcarlocked(bool carlocked)
@@ -49,4 +62,24 @@ void System::setusername(QString username)
 
     m_username = username;
     emit usernameChanged(m_username);
+}
+
+void System::setcurrentTime(QString currentTime)
+{
+    if (m_currentTime == currentTime)
+        return;
+
+    m_currentTime = currentTime;
+    emit currentTimeChanged(m_currentTime);
+}
+
+void System::currentTimeTimerTimeout()
+{
+    QDateTime dateTime;
+    QString currentTime = dateTime.currentDateTime().toString( "h:m ap");
+    qDebug() << currentTime;
+    setcurrentTime(currentTime);
+
+    m_currentTimeTimer->start();
+
 }
