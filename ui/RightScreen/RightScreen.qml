@@ -81,7 +81,6 @@ Rectangle {
         font.pixelSize: 20
         font.bold: true
         color: "black"
-
         text: systemHandler.username
     }
 

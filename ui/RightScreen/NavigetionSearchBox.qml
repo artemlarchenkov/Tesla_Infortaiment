@@ -19,4 +19,29 @@ Rectangle {
 
         source: "qrc:/ui/assets/search.png"
     }
+
+    Text {
+        id: navigationPlaceHolderText
+        visible: navigetionTextInput.text === ""
+        color: "#373737"
+        text: "Navigate"
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: searchIcon.right
+            leftMargin: 50
+        }
+    }
+    TextInput {
+        id: navigetionTextInput
+
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            right: parent.right
+            left: searchIcon.right
+            leftMargin: 20
+        }
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: 16
+    }
 }
