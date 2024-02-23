@@ -85,5 +85,17 @@ Rectangle {
         text: systemHandler.username
     }
 
+    NavigetionSearchBox {
+        id: navSearchBox
+
+        width: parent.width * 1/3
+        height:  parent.height * 1/12
+        anchors {
+            left: lockIcon.left
+            top: lockIcon.bottom
+            topMargin: 15
+        }
+    }
+
      width: parent.width * 2/3
 }
